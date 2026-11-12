@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J.A.R.V.I.S. LIBERTY // TACTICAL DESKTOP OS</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hud-container">
+    
+    <!-- TOP HEADER BAR -->
+    <header class="top-nav">
+      <div class="brand-cluster">
+        <div class="reactor-badge">
+          <div class="reactor-core"></div>
+        </div>
+        <div class="brand-title">
+          <h1>J.A.R.V.I.S. <span>LIBERTY</span></h1>
+          <p class="subtitle">TACTICAL DESKTOP AGENT OS // OPERATOR: <strong>BOSS AHMED</strong></p>
+        </div>
+      </div>
+
+      <!-- MASTER HARDWARE POWER SWITCH -->
+      <div class="master-switch-box">
+        <div class="switch-meta">
+          <span class="switch-label">MASTER POWER</span>
+          <span class="status-badge" id="systemStatusBadge">● STANDBY</span>
+        </div>
+        <button class="power-toggle-btn" id="powerToggleBtn" onclick="toggleMasterPower()">
+          <span class="btn-indicator"></span>
+          <span class="btn-text" id="powerBtnText">ENGAGE JARVIS (POWER ON)</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <main class="hud-grid">
+
+      <!-- LEFT COLUMN: TELEMETRY & GAUGES -->
+      <section class="panel telemetry-panel">
+        <div class="panel-header">
+          <h2>HARDWARE TELEMETRY</h2>
+          <span class="panel-tag">LIVE SENSORS</span>
+        </div>
+
+        <div class="gauges-grid">
+          <!-- CPU CARD -->
+          <div class="gauge-card">
+            <div class="gauge-title">CPU UTILIZATION</div>
+            <div class="gauge-value" id="valCpu">--%</div>
+            <div class="gauge-bar-track"><div class="gauge-bar-fill" id="barCpu" style="width: 0%"></div></div>
+            <div class="gauge-status" id="statusCpu">SENSING...</div>
+          </div>
+
+          <!-- RAM CARD -->
+          <div class="gauge-card">
+            <div class="gauge-title">MEMORY (RAM)</div>
+            <div class="gauge-value" id="valRam">-- GB</div>
+            <div class="gauge-bar-track"><div class="gauge-bar-fill fill-ram" id="barRam" style="width: 0%"></div></div>
+            <div class="gauge-status" id="statusRam">--% LOAD</div>
+          </div>
+
+          <!-- BATTERY CARD -->
+          <div class="gauge-card">
+            <div class="gauge-title">POWER CORE</div>
+            <div class="gauge-value" id="valBatt">--%</div>
+            <div class="gauge-bar-track"><div class="gauge-bar-fill fill-batt" id="barBatt" style="width: 0%"></div></div>
+            <div class="gauge-status" id="statusBatt">DETECTING...</div>
+          </div>
+
+          <!-- STORAGE CARD -->
+          <div class="gauge-card">
+            <div class="gauge-title">DRIVE (C:)</div>
+            <div class="gauge-value" id="valDisk">-- GB</div>
+            <div class="gauge-bar-track"><div class="gauge-bar-fill fill-disk" id="barDisk" style="width: 50%"></div></div>
+            <div class="gauge-status">NOMINAL</div>
+          </div>
+        </div>
+
+        <!-- AUDIO WAVEFORM VISUALIZER -->
+        <div class="visualizer-box">
+          <div class="vis-header">
+            <span>NEURAL AUDIO RESONATOR</span>
+            <span id="audioStateLbl">DORMANT</span>
+          </div>
+          <canvas id="waveformCanvas" width="340" height="70"></canvas>
+        </div>
+
+        <!-- QUICK ACTION DECK -->
+        <div class="quick-actions-box">
+          <div class="deck-title">TACTICAL ACTION DECK</div>
+          <div class="actions-grid">
+            <button class="action-btn" onclick="executeQuickAction('clean')">🧹 Flush RAM</button>
+            <button class="action-btn" onclick="executeQuickAction('snap')">📸 Screenshot</button>
+            <button class="action-btn" onclick="executeQuickAction('stealth')">🕶️ Stealth Mode</button>
+            <button class="action-btn" onclick="executeQuickAction('motivate')">⚡ Motivate Me</button>
+            <button class="action-btn" onclick="executeQuickAction('open chrome')">🌐 Chrome</button>
+            <button class="action-btn" onclick="executeQuickAction('open code')">💻 VS Code</button>
+            <button class="action-btn" onclick="executeQuickAction('open youtube')">🎵 YouTube</button>
+            <button class="action-btn" onclick="executeQuickAction('time')">⏱️ Time Check</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: COMMAND CENTER & DICTATION STUDIO -->
+      <section class="panel command-panel">
+        
+        <!-- VOICE & DICTATION STUDIO (Hands-Free Typing) -->
+        <div class="dictation-studio">
+          <div class="studio-header">
+            <div>
+              <h3>GLOBAL DICTATION STUDIO</h3>
+              <p class="studio-sub">Speak or type — JARVIS will inscribe text directly into your active window</p>
+            </div>
+            <button class="mic-toggle-btn" id="micBtn" onclick="toggleSpeechRecognition()">
+              <span class="mic-icon">🎙️</span>
+              <span id="micBtnText">HOLD TO SPEAK</span>
+            </button>
+          </div>
+
+          <div class="dictation-input-row">
+            <input type="text" id="commandInput" placeholder="Directive or text to type (e.g. 'type Hello World' or 'open code')..." autofocus>
+            <button class="inscribe-btn" onclick="submitDirective()">TRANSMIT ❯</button>
+          </div>
+        </div>
+
+        <!-- TACTICAL EVENT LOG STREAM -->
+        <div class="terminal-feed-box">
+          <div class="feed-header">
+            <span>HOLOGRAPHIC EVENT STREAM</span>
+            <button class="clear-feed-btn" onclick="clearFeed()">CLEAR</button>
+          </div>
+          <div class="feed-logs" id="feedLogs">
+            <div class="log-entry log-system">
+              <span class="log-ts">[00:00:00]</span>
+              <span class="log-badge">[SYSTEM]</span>
+              <span class="log-msg">J.A.R.V.I.S. Liberty Core initialized. Awaiting Master Power Switch engagement by Boss Ahmed.</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="hud-footer">
+      <div>Engineered for <strong>Boss Ahmed</strong> │ 100% Zero-Cost Architecture │ Windows Hardware Protected</div>
+      <div>SYNTHESIZED FROM: <em>isair/jarvis</em>, <em>PersonalJarvis</em>, <em>OpenInterpreter</em>, <em>self-operating-computer</em></div>
+    </footer>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
