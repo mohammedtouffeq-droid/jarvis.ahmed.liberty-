@@ -13,15 +13,19 @@
 
 ## 🌟 Executive Synthesis Architecture
 
-**J.A.R.V.I.S. Liberty** represents a multi-repo engineering synthesis combining the strongest architectural patterns from the top open-source desktop AI assistants into a lightweight, safe, zero-cost operating system tailored for **Boss Ahmed**:
+**J.A.R.V.I.S. Liberty** represents an engineering synthesis combining the strongest architectural patterns from the top 9 open-source desktop AI assistants into a lightweight, safe, zero-cost operating system tailored for **Boss Ahmed**:
 
 | Source Repository | Synthesized Capability in JARVIS Liberty |
 |---|---|
-| **[isair/jarvis](https://github.com/isair/jarvis)** (2.2k ⭐) | **Global Dictation Engine** (instant typing into active foreground apps) & **Local Knowledge Memory Graph** |
-| **[Robee99/PersonalJarvis](https://github.com/Robee99/PersonalJarvis)** | **Wake-Word Listener** & **Desktop Application Orchestrator** |
+| **[isair/jarvis](https://github.com/isair/jarvis)** (2.2k ⭐) | **Global Dictation Engine** (hands-free typing into any active window) & **Local Memory Graph** |
+| **[Robee99/PersonalJarvis](https://github.com/Robee99/PersonalJarvis)** | **Wake-Word Protocols** & **Desktop Application Orchestrator** |
 | **[AnubhavChaturvedi/jarvis-ai-assistant](https://github.com/AnubhavChaturvedi-GitHub/jarvis-ai-assistant)** | **Modular Subsystem Registry** (Isolated Voice, System, Web, and Media controllers) |
-| **[OthersideAI/self-operating-computer](https://github.com/OthersideAI/self-operating-computer)** | **Low-Level OS Screen & Keyboard Automation** (`pyautogui` safe controller) |
-| **[OpenInterpreter/open-interpreter](https://github.com/OpenInterpreter/open-interpreter)** | **Natural Language Intent Router** & **Safe Directive Execution** |
+| **[OthersideAI/self-operating-computer](https://github.com/OthersideAI/self-operating-computer)** | **Low-Level OS Screen & Keyboard Automation** (`pyautogui` safe controller, mouse & scroll) |
+| **[OpenInterpreter/open-interpreter](https://github.com/OpenInterpreter/open-interpreter)** | **Natural Language Intent Router**, **Safe AST Math Calculator**, & Directive Execution |
+| **[p5Patricio/eclipse-desktop-agent](https://github.com/p5Patricio/eclipse-desktop-agent)** | **Tactical Aerospace State HUD** & Real-Time Sensor Bus |
+| **[psycoks/Jarvis](https://github.com/psycoks/Jarvis)** | **Windows Native Hardware Controls** (Master Volume, Mute, Security Workstation Lock) |
+| **[Progyadip/Sanjay-AI-Assistant](https://github.com/Progyadip/Sanjay-AI-Assistant)** | **Safe System Maintenance**, **Recycle Bin Management**, & **Host Specs Probe** |
+| **[leon-ai/leon](https://github.com/leon-ai/leon)** | **Zero-Cost Live Intel** (Wikipedia Briefs, Instant Weather, Tech Humor, Offline Routing) |
 
 ---
 
@@ -41,6 +45,9 @@
 
 ### 4. 📊 Real-Time Holographic Telemetry HUD
 * Real-time metrics for **CPU Load**, **RAM Usage (GB & %)**, **Battery Health & Charge State**, and **Storage Space**.
+
+### 5. 💰 100% Zero-Cost Offline Architecture
+* Operates entirely using native Windows SAPI voices and free public APIs with graceful offline fallbacks. Zero monthly subscription bills.
 
 ---
 
@@ -66,12 +73,22 @@ python cli.py
 | Directive | Tactical Action |
 |---|---|
 | `type <message>` | Automatically inscribes text into the currently active foreground window |
-| `open <app>` | Launches desktop tools (`chrome`, `code`, `youtube`, `calc`, `files`, etc.) |
+| `calc <expression>` | Safely evaluates arithmetic expressions (e.g. `calc 500 * 25 / 2`) |
+| `wiki <query>` | Fetches live Wikipedia intelligence summary without opening browser tabs |
+| `weather <city>` | Announces live weather, temperature, and wind speed |
+| `open <app>` | Launches desktop tools (`chrome`, `code`, `youtube`, `calc`, `files`, `spotify`, etc.) |
 | `search <query>` | Conducts instant Google intelligence search |
 | `yt <query>` | Streams requested media directly on YouTube |
+| `volup` / `voldown` | Raises or lowers master system volume (+10% / -10%) |
+| `mute` | Toggles master system mute / unmute |
+| `scroll up` / `down` | Hands-free page scrolling |
+| `lock` | Instantly locks the Windows workstation for security |
 | `clean` / `boost` | Purges memory caches and optimizes RAM footprint |
 | `snap` / `screen` | Captures high-resolution screenshot directly to Desktop |
 | `stealth` | Clears all windows into stealth focus mode |
+| `specs` | Announces system hostname, local IP, and hardware architecture |
+| `joke` | Delivers an entertaining programmer humor easter egg |
+| `empty bin` | Safely empties Windows Recycle Bin |
 | `motivate` | Delivers an energizing tactical motivational boost |
 | `time` / `date` | Announces system timestamp and uptime |
 
